@@ -13,7 +13,7 @@ const SideMenuItems = {
   Home: "/",
   Sklep: "/sklep",
   Search: "/search",
-  Account: "/account",
+  Konto: "/konto",
   Cart: "/cart",
 }
 
