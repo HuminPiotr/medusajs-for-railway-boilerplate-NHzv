@@ -45,7 +45,7 @@ const ProductDetailDefault = ({ onNext, isComplete, data }: StepContentProps) =>
             {
               label: "cURL",
               language: "bash",
-              code: `curl "${backendUrl}/store/products/${data?.product_id}"${api_key ? ` -H "x-publishable-key: ${api_key}"` : ``}`,
+              code: `curl "${backendUrl}/sklep/produkty/${data?.product_id}"${api_key ? ` -H "x-publishable-key: ${api_key}"` : ``}`,
             },
             {
               label: "Medusa JS Client",
@@ -70,7 +70,7 @@ const ProductDetailDefault = ({ onNext, isComplete, data }: StepContentProps) =>
       </div>
       <div className="flex gap-2">
         <a
-          href={`${backendUrl}/store/products/${data?.product_id}`}
+          href={`${backendUrl}/store/produkty/${data?.product_id}`}
           target="_blank"
         >
           <Button variant="secondary" size="base">

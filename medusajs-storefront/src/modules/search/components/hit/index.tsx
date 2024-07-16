@@ -21,7 +21,7 @@ type HitProps = {
 
 const Hit = ({ hit }: HitProps) => {
   return (
-    <LocalizedClientLink href={`/products/${hit.handle}`}>
+    <LocalizedClientLink href={`/produkty/${hit.handle}`}>
       <Container
         key={hit.id}
         className="flex sm:flex-col gap-2 w-full p-4 shadow-elevation-card-rest hover:shadow-elevation-card-hover items-center sm:justify-center"
