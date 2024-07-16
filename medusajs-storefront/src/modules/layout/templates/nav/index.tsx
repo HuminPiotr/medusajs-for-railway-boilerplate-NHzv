@@ -33,10 +33,10 @@ export default async function Nav() {
               {process.env.FEATURE_SEARCH_ENABLED && (
                 <LocalizedClientLink
                   className="hover:text-ui-fg-base"
-                  href="/search"
+                  href="/szukaj"
                   scroll={false}
                 >
-                  Search
+                  Szukaj
                 </LocalizedClientLink>
               )}
               <LocalizedClientLink
