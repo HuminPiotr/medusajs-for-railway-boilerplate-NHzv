@@ -1,0 +1,44 @@
+@import '@styles/variables.scss';
+
+.logo{
+    max-width: 160px;
+    position: relative;
+    margin: 10px auto;
+    padding-top: 8px;
+    display: block;
+
+
+    &__text {
+        font-size: 28px;
+        font-family: var(--cormorant);
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        color: $secondaryColor;
+        text-align: center; 
+        padding-left: 2px; 
+
+        &--white {
+            color: white;
+        }
+    }
+
+    &__logotype {
+        position: absolute;
+        top: -4px;
+        left: -23px;
+        animation: fallingLeaf 1s ease-out;
+    }
+
+    @keyframes fallingLeaf {
+        0%   {
+            transform: translateY(-10px) rotate(21deg);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0px) rotate(0deg);
+            opacity: 1;
+        }
+      }
+}

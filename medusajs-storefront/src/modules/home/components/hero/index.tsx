@@ -1,35 +1,32 @@
-import { Github } from "@medusajs/icons"
-import { Button, Heading } from "@medusajs/ui"
+import './styles.scss';
+
+import React from 'react';
+import Image from 'next/image';
+
+import ButtonLink from '@modules/layout/components/ButtonLink';
+
+
+
 
 const Hero = () => {
   return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle">
-      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
-        <span>
-          <Heading
-            level="h1"
-            className="text-3xl leading-10 text-ui-fg-base font-normal"
-          >
-            Well done! You have successfully deployed your Medusa store on Railway!
-          </Heading>
-          <Heading
-            level="h2"
-            className="text-3xl leading-10 text-ui-fg-subtle font-normal"
-          >
-            Need help customizing your store?
-          </Heading>
-        </span>
-        <a
-          href="https://funkyton.com/tutorial-customize-your-medusajs-webshop-storefron/"
-          target="_blank"
-        >
-          <h1 style={{ textDecoration: "underline" }}>
-            Visit the tutorial
-          </h1>
-        </a>
-      </div>
-    </div>
+    <section className='hero'>
+        <Image 
+            src="/images/background-shop.jpg" 
+            className='hero__image' 
+            fill  
+            quality={100}
+            alt="Wnętrze sklepu Hollandstyle"
+        />
+        <div className="hero__filter"></div>
+        <h2 className='hero__title'>
+            Nadaj swojemu wnętrzu duszę.
+        </h2>
+        <ButtonLink href="/sklep" className="hero__button" >
+          Odwiedź sklep
+        </ButtonLink>
+    </section>
   )
 }
 
-export default Hero
+export default Hero;

@@ -1,0 +1,42 @@
+@import '@styles/variables.scss';
+
+.button {
+    background-color: $primaryColor;
+    color: $brownColor;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+        background-color: $brownColor;
+        color: $beigeColor;
+    }
+
+    &--transparent {
+        border: solid 1px ;
+        background-color: transparent;
+    }
+
+    &--disabled {
+        background-color: $grayColor;
+        color: #E2E0DD;
+        cursor: not-allowed !important;
+
+        &:hover {
+            background-color: $grayColor;
+            color: #E2E0DD;
+        }
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        font-size: 2.5rem;
+    }
+}
