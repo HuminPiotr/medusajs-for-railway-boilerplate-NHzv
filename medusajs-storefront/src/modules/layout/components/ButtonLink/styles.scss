@@ -12,10 +12,13 @@
     padding: 10px 24px;
     cursor: pointer;
     transition: .3s;
+    filter: blur(0px);
 
     &:hover {
         background-color: $brownColor;
         color: $beigeColor;
+        box-shadow: 0 0 8px rgba($beigeColor, 0.5);
+        padding: 10px 28px;
 
         .buttonLink__icon {
             color: $beigeColor;

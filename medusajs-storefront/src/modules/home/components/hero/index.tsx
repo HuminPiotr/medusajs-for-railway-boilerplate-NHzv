@@ -10,7 +10,8 @@ import ButtonLink from '@modules/layout/components/ButtonLink';
 
 const Hero = () => {
   return (
-    <section className='hero'>
+    <div className="hero-container">
+          <section className='hero'>
         <Image 
             src="/images/background-shop.jpg" 
             className='hero__image' 
@@ -26,6 +27,8 @@ const Hero = () => {
           Odwiedź sklep
         </ButtonLink>
     </section>
+    </div>
+
   )
 }
 
