@@ -1,22 +1,30 @@
+'use client';
+
 import { LineItem } from "@medusajs/medusa"
 
 import { enrichLineItems, retrieveCart } from "@modules/cart/actions"
 
 import CartDropdown from "../cart-dropdown"
 
-const fetchCart = async () => {
-  const cart = await retrieveCart()
+// Context
+import { useCart } from '@context/CartContext';
 
-  if (cart?.items.length) {
-    const enrichedItems = await enrichLineItems(cart?.items, cart?.region_id)
-    cart.items = enrichedItems as LineItem[]
-  }
+// const fetchCart = async () => {
+//   const cart = await retrieveCart()
 
-  return cart
-}
 
-export default async function CartButton() {
-  const cart = await fetchCart()
+//   if (cart?.items.length) {
+//     const enrichedItems = await enrichLineItems(cart?.items, cart?.region_id)
+//     cart.items = enrichedItems as LineItem[]
+//   }
+
+//   return cart
+// }
+
+export default  function CartButton() {
+  // const cart = await fetchCart()
+  const {cart} = useCart();
+  console.log(cart);
 
   return <CartDropdown cart={cart} />
 }

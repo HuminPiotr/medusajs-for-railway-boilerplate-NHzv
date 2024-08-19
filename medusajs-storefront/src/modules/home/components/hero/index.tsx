@@ -20,12 +20,15 @@ const Hero = () => {
             alt="Wnętrze sklepu Hollandstyle"
         />
         <div className="hero__filter"></div>
-        <h2 className='hero__title'>
-            Nadaj swojemu wnętrzu duszę.
-        </h2>
-        <ButtonLink href="/sklep" className="hero__button" >
-          Odwiedź sklep
-        </ButtonLink>
+        <main className="hero__content">
+          <h2 className='hero__title'>
+              Nadaj swojemu wnętrzu duszę.
+          </h2>
+          <ButtonLink href="/sklep" className="hero__button" >
+            Odwiedź sklep
+          </ButtonLink>
+        </main>
+
     </section>
     </div>
 

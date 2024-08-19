@@ -1,0 +1,13 @@
+@import "@styles/variables";
+
+.facebook-button {
+
+    &__icon {
+        color: $blackColor;
+        transition: .3s;
+
+        &:hover {
+            color: $facebookBlueColor;
+        }
+    }
+}

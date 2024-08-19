@@ -1,0 +1,60 @@
+@import "@styles/variables.scss";
+
+.hamburger {
+    width: 30px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+
+    &__line {
+        width: 100%;
+        height: 1px;
+        background-color: $blackColor;
+        transform-origin: right ;
+    }
+
+    &:hover{
+
+        .hamburger__line {
+            animation: hover .7s;
+
+            &:nth-child(1) {
+                animation-delay: 0s;
+            }
+            &:nth-child(2) {
+                animation-delay: .15s;
+            }
+            &:nth-child(3) {
+                animation-delay: .25s;
+
+            }
+        }
+    }
+
+
+    // VARIANTS
+    &--white {
+        .hamburger__line {
+            background-color: $whiteColor;
+        }
+    }
+
+
+    @keyframes hover {
+        0% {
+            transform: scaleX(100%);
+        }
+
+        50% {
+            transform: scaleX(0%);
+            
+        }
+
+        100% {
+            transform-origin: left;
+            transform: scaleX(100%);
+        }
+    }
+}

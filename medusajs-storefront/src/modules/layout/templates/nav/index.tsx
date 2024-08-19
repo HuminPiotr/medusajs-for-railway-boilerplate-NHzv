@@ -7,7 +7,7 @@ import { listRegions } from "@lib/data"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
-import Logo from "../Logo";
+
 
 
 export default async function Nav() {
@@ -28,7 +28,7 @@ export default async function Nav() {
               href="/"
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
             > */}
-              <Logo />
+              {/* <Logo /> */}
               
             {/* </LocalizedClientLink> */}
           </div>
@@ -62,6 +62,7 @@ export default async function Nav() {
               }
             >
               <CartButton />
+              {/* <h1>LOL</h1> */}
             </Suspense>
           </div>
         </nav>

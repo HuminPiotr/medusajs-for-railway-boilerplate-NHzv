@@ -15,6 +15,9 @@ import OptionSelect from "@modules/products/components/option-select"
 import MobileActions from "../mobile-actions"
 import ProductPrice from "../product-price"
 
+// Context
+import { useCart } from '@context/CartContext';
+
 type ProductActionsProps = {
   product: PricedProduct
   region: Region
@@ -35,6 +38,7 @@ export default function ProductActions({
   const [isAdding, setIsAdding] = useState(false)
 
   const countryCode = useParams().countryCode as string
+  const {refreshCart} = useCart();
 
   const variants = product.variants
 
@@ -119,6 +123,7 @@ export default function ProductActions({
       quantity: 1,
       countryCode,
     })
+    refreshCart();
 
     setIsAdding(false)
   }

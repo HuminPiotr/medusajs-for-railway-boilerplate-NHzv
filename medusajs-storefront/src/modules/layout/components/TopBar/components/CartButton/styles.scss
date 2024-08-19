@@ -1,0 +1,78 @@
+@import "@styles/variables.scss";
+
+.cartbutton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--lato);
+
+    &__icon {
+        color: $blackColor;
+        transition: .3s;
+    }
+
+    &__text {
+        text-transform: uppercase;
+        transition: .3s;
+    }
+
+    &__counter {
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        color: $whiteColor;
+        background-color: $secondaryColor;
+        transition: .3s;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:hover {
+        .cartbutton__icon {
+            color: $lightBrownColor;
+        }
+    
+        .cartbutton__text {
+            color: $lightBrownColor;
+        }
+    
+        .cartbutton__counter {
+            background-color: $lightBrownColor;
+            
+        }
+    }
+
+    // VARIANTS
+    &--white {
+        .cartbutton__icon {
+            color: $whiteColor;
+        }
+
+        .cartbutton__text {
+            color: $whiteColor;
+        }
+
+        .cartbutton__counter {
+            color: #4C3D30;
+            background-color: $whiteColor;
+        }
+
+        &:hover {
+            .cartbutton__icon {
+                color: $primaryColor;
+            }
+        
+            .cartbutton__text {
+                color: $primaryColor;
+            }
+        
+            .cartbutton__counter {
+                background-color: $primaryColor;
+                
+            }
+        }
+    }
+
+}

@@ -4,6 +4,8 @@ import '@styles/app.scss';
 
 import { Cormorant, Lato } from 'next/font/google'
 
+import { CartProvider } from "context/CartContext";
+
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://localhost:8000"
 
 export const metadata: Metadata = {
@@ -27,10 +29,12 @@ const cormorant = Cormorant({
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
+    <CartProvider>
     <html lang="pl" data-mode="light" className={`${lato.variable} ${cormorant.variable}`}>
       <body className={cormorant.className}>
         <main className="relative">{props.children}</main>
       </body>
     </html>
+    </CartProvider>
   )
 }

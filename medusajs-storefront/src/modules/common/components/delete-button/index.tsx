@@ -4,6 +4,9 @@ import { useState } from "react"
 
 import { deleteLineItem } from "@modules/cart/actions"
 
+// Context
+import { useCart } from '@context/CartContext';
+
 const DeleteButton = ({
   id,
   children,
@@ -13,13 +16,15 @@ const DeleteButton = ({
   children?: React.ReactNode
   className?: string
 }) => {
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false);
+  const {refreshCart} = useCart();
 
   const handleDelete = async (id: string) => {
     setIsDeleting(true)
     await deleteLineItem(id).catch((err) => {
       setIsDeleting(false)
     })
+    refreshCart();
   }
 
   return (
