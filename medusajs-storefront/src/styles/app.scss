@@ -9,13 +9,13 @@ html, body {
     padding: 0;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Robot, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-size: 10px;
+    font-size: 18px;
 
     @media (max-width: 900px) {
-        font-size: 8px;
+        font-size: 16px;
     }
     @media (max-width: 450px) {
-        font-size: 6px;
+        font-size: 14px;
     }
 }
 
@@ -30,14 +30,18 @@ a {
     text-decoration: none;
     color: $blackColor;
     font-family: var(--lato);
-    font-size: 1.4rem;
+    // font-size: 1.4rem;
+}
+
+h1{
+    font-size: 1.6rem;
 }
 
 h3 {
-    font-size: 3.2rem;
+    font-size: 1.9rem;
 }
 h4 {
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     font-family: var(--lato);
 }
 

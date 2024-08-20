@@ -82,7 +82,7 @@ const CartDropdown = ({
       <Popover className=" relative h-full d-flex">
         <Popover.Button className="cartbutton h-full">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base flex gap-4 item-center uppercase"
+            className="flex gap-4 item-center uppercase"
             href="/koszyk"
           >
             <FaShoppingBag className="cartbutton__icon"/>

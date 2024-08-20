@@ -46,7 +46,7 @@ const AccountNav = ({
         ) : (
           <>
             <div className="text-xl-semi mb-4 px-8">
-              Hello {customer?.first_name}
+              Witaj {customer?.first_name}
             </div>
             <div className="text-base-regular">
               <ul>
@@ -58,7 +58,8 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <User size={20} />
-                        <span>Profile</span>
+                        <span>Profil
+                        </span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -72,7 +73,7 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <MapPin size={20} />
-                        <span>Addresses</span>
+                        <span>Adres</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -85,7 +86,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <Package size={20} />
-                      <span>Orders</span>
+                      <span>Zamówienia</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
@@ -98,7 +99,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <ArrowRightOnRectangle />
-                      <span>Log out</span>
+                      <span>Wyloguj</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </button>
@@ -117,27 +118,27 @@ const AccountNav = ({
             <ul className="flex mb-0 justify-start items-start flex-col gap-y-4">
               <li>
                 <AccountNavLink href="/konto" route={route!}>
-                  Overview
+                  Przeglad
                 </AccountNavLink>
               </li>
               <li>
                 <AccountNavLink href="/konto/profile" route={route!}>
-                  Profile
+                  Profil
                 </AccountNavLink>
               </li>
               <li>
                 <AccountNavLink href="/konto/addresses" route={route!}>
-                  Addresses
+                  Addres
                 </AccountNavLink>
               </li>
               <li>
                 <AccountNavLink href="/konto/orders" route={route!}>
-                  Orders
+                  Zamówienia
                 </AccountNavLink>
               </li>
               <li className="text-grey-700">
                 <button type="button" onClick={handleLogout}>
-                  Log out
+                  Wyloguj
                 </button>
               </li>
             </ul>

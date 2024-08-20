@@ -15,8 +15,6 @@ import Hamburger from "./components/Hamburger";
 
 import { CONTACT } from "@constants/contact.js";
 
-import CartButton from "./components/CartButton";
-
 export interface TopBarProps  {
   initialVariant?: "default" | "white";
 }
@@ -107,37 +105,31 @@ const TopBar: React.FC<TopBarProps> = ({initialVariant = "default"}) => {
               </Link>
             </div>
             <div className="topbar__menu-column">
-              <Link className="topbar__menu-link topbar__menu-link--main " href="/sklep">
+              <LocalizedClientLink className="topbar__menu-link topbar__menu-link--main " href="/sklep">
                 Sklep
-              </Link>
-              <Link className="topbar__menu-link" href="/sklep/krzesla">
-                Krzesła
-              </Link>
-              <Link className="topbar__menu-link" href="/sklep/stoly">
-                Stoły
-              </Link>
-              <Link className="topbar__menu-link" href="/sklep/szafy">
-                Szafy
-              </Link>
-              <Link className="topbar__menu-link" href="/sklep/komody">
-                Komody
-              </Link>
-              <Link className="topbar__menu-link" href="/sklep/obrazy">
-                Obrazy
-              </Link>
-              <Link className="topbar__menu-link" href="/sklep/dekoracje">
-                Dekoracje
-              </Link>
+              </LocalizedClientLink>
+              <LocalizedClientLink className="topbar__menu-link" href="/collections/witryny-i-komody">
+                Witryny i komody
+              </LocalizedClientLink>
+              <LocalizedClientLink className="topbar__menu-link" href="/collections/fotele">
+                Fotele
+              </LocalizedClientLink>
+              <LocalizedClientLink className="topbar__menu-link" href="/collections/oswietlenie">
+                Oświetlenie
+              </LocalizedClientLink>
+
             </div>
             <div className="topbar__menu-column">
               <Link className="topbar__menu-link topbar__menu-link--main" href="/kontakt">
                 Kontakt
               </Link>
-              <p>{CONTACT.street} </p>
-              <p>{CONTACT.city}</p>
-              <a href={`tel:${CONTACT.phone}`}></a>
-              <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
-              <FacebookButton />
+              <span className="topbar__contact-info">
+                <p>{CONTACT.street} </p>
+                <p>{CONTACT.city}</p>
+                <a href={`tel:${CONTACT.phone}`}></a>
+                <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+                <FacebookButton />
+              </span>
             </div>
           </div>
           

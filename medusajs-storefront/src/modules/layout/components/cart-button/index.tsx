@@ -24,7 +24,6 @@ import { useCart } from '@context/CartContext';
 export default  function CartButton() {
   // const cart = await fetchCart()
   const {cart} = useCart();
-  console.log(cart);
 
   return <CartDropdown cart={cart} />
 }

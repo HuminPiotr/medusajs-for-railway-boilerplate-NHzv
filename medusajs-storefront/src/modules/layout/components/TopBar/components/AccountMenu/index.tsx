@@ -9,7 +9,7 @@ const AccountMenu = () => {
   return (
     <nav className='accountMenu'>
         <LocalizedClientLink
-            className="hover:text-ui-fg-base"
+            className=""
             href="/konto"
           >
             KONTO
@@ -17,7 +17,7 @@ const AccountMenu = () => {
         <Suspense
           fallback={
             <LocalizedClientLink
-              className="hover:text-ui-fg-base flex gap-2"
+              className=" flex gap-2"
               href="/koszyk"
             >
               Koszyk 
