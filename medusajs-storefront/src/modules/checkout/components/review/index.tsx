@@ -13,7 +13,7 @@ const Review = ({
 }) => {
   const searchParams = useSearchParams()
 
-  const isOpen = searchParams.get("step") === "review"
+  const isOpen = searchParams?.get("step") === "review"
 
   const previousStepsCompleted =
     cart.shipping_address &&

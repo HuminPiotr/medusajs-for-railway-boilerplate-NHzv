@@ -5,18 +5,19 @@ import "./styles.scss";
 import React from 'react'
 import Button from "@modules/layout/components/Button";
 
-// import CartProduct from "./CartProduct";
+import CartProduct from "./cartProduct";
 
 import { FaShoppingBag } from 'react-icons/fa';
 
 // Context
-// import { useCart } from '@/context/CartContext';
+import { useCart } from '@context/CartContext';
 
  
 const CartPanel: React.FC = () => {
   const { isCartOpen, toggleCart, cartItems, cartItemsQuantity } = useCart();
-  // const product_list = cartItems?.map(({id, name, price, quantity}) => <CartProduct key={id} name={name} price={price} quantity={quantity} /> ) ;
-  const product_list = [{}];
+  console.log(cartItems);
+  const product_list = cartItems?.map(({id, title, unit_price, quantity}) => <CartProduct key={id} name={title} price={unit_price} quantity={quantity} /> ) ;
+  // const product_list = [{}];
 
   return isCartOpen && (
     <aside className="cartpanel">

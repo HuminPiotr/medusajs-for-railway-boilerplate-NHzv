@@ -1,43 +1,43 @@
 "use client"
 
-import { useCallback, useContext, useEffect, useMemo, useState } from "react"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { RadioGroup } from "@headlessui/react"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import { Cart } from "@medusajs/medusa"
-import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
-import { Button, Container, Heading, Text, Tooltip, clx } from "@medusajs/ui"
-import { CardElement } from "@stripe/react-stripe-js"
-import { StripeCardElementOptions } from "@stripe/stripe-js"
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { RadioGroup } from "@headlessui/react";
+import ErrorMessage from "@modules/checkout/components/error-message";
+import { Cart } from "@medusajs/medusa";
+import { CheckCircleSolid, CreditCard } from "@medusajs/icons";
+import { Button, Container, Heading, Text, Tooltip, clx } from "@medusajs/ui";
+import { CardElement } from "@stripe/react-stripe-js";
+import { StripeCardElementOptions } from "@stripe/stripe-js";
 
-import Divider from "@modules/common/components/divider"
-import Spinner from "@modules/common/icons/spinner"
-import PaymentContainer from "@modules/checkout/components/payment-container"
-import { setPaymentMethod } from "@modules/checkout/actions"
-import { paymentInfoMap } from "@lib/constants"
-import { StripeContext } from "@modules/checkout/components/payment-wrapper"
+import Divider from "@modules/common/components/divider";
+import Spinner from "@modules/common/icons/spinner";
+import PaymentContainer from "@modules/checkout/components/payment-container";
+import { setPaymentMethod } from "@modules/checkout/actions";
+import { paymentInfoMap } from "@lib/constants";
+import { StripeContext } from "@modules/checkout/components/payment-wrapper";
 
 const Payment = ({
   cart,
 }: {
-  cart: Omit<Cart, "refundable_amount" | "refunded_total"> | null
+  cart: Omit<Cart, "refundable_amount" | "refunded_total"> | null;
 }) => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [cardBrand, setCardBrand] = useState<string | null>(null)
-  const [cardComplete, setCardComplete] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [cardBrand, setCardBrand] = useState<string | null>(null);
+  const [cardComplete, setCardComplete] = useState(false);
 
-  const searchParams = useSearchParams()
-  const router = useRouter()
-  const pathname = usePathname()
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const isOpen = searchParams?.get("step") === "payment"
+  const isOpen = searchParams?.get("step") === "payment";
 
-  const isStripe = cart?.payment_session?.provider_id === "stripe"
-  const stripeReady = useContext(StripeContext)
+  const isStripe = cart?.payment_session?.provider_id === "stripe";
+  const stripeReady = useContext(StripeContext);
 
   const paymentReady =
-    cart?.payment_session && cart?.shipping_methods.length !== 0
+    cart?.payment_session && cart?.shipping_methods.length !== 0;
 
   const useOptions: StripeCardElementOptions = useMemo(() => {
     return {
@@ -53,51 +53,52 @@ const Payment = ({
       classes: {
         base: "pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover transition-all duration-300 ease-in-out",
       },
-    }
-  }, [])
+    };
+  }, []);
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams)
-      params.set(name, value)
+      if (!searchParams) return ""; // Dodanie warunku, aby upewnić się, że searchParams nie jest null
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
 
-      return params.toString()
+      return params.toString();
     },
     [searchParams]
-  )
+  );
 
   const set = async (providerId: string) => {
-    setIsLoading(true)
+    setIsLoading(true);
     await setPaymentMethod(providerId)
       .catch((err) => setError(err.toString()))
       .finally(() => {
-        if (providerId === "paypal") return
-        setIsLoading(false)
-      })
-  }
+        if (providerId === "paypal") return;
+        setIsLoading(false);
+      });
+  };
 
   const handleChange = (providerId: string) => {
-    setError(null)
-    set(providerId)
-  }
+    setError(null);
+    set(providerId);
+  };
 
   const handleEdit = () => {
     router.push(pathname + "?" + createQueryString("step", "payment"), {
       scroll: false,
-    })
-  }
+    });
+  };
 
   const handleSubmit = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     router.push(pathname + "?" + createQueryString("step", "review"), {
       scroll: false,
-    })
-  }
+    });
+  };
 
   useEffect(() => {
-    setIsLoading(false)
-    setError(null)
-  }, [isOpen])
+    setIsLoading(false);
+    setError(null);
+  }, [isOpen]);
 
   return (
     <div className="bg-white">
@@ -135,7 +136,7 @@ const Payment = ({
             >
               {cart.payment_sessions
                 .sort((a, b) => {
-                  return a.provider_id > b.provider_id ? 1 : -1
+                  return a.provider_id > b.provider_id ? 1 : -1;
                 })
                 .map((paymentSession) => {
                   return (
@@ -147,7 +148,7 @@ const Payment = ({
                         cart.payment_session?.provider_id || null
                       }
                     />
-                  )
+                  );
                 })}
             </RadioGroup>
 
@@ -163,9 +164,9 @@ const Payment = ({
                     setCardBrand(
                       e.brand &&
                         e.brand.charAt(0).toUpperCase() + e.brand.slice(1)
-                    )
-                    setError(e.error?.message || null)
-                    setCardComplete(e.complete)
+                    );
+                    setError(e.error?.message || null);
+                    setCardComplete(e.complete);
                   }}
                 />
               </div>
@@ -231,7 +232,7 @@ const Payment = ({
       </div>
       <Divider className="mt-8" />
     </div>
-  )
-}
+  );
+};
 
-export default Payment
+export default Payment;

@@ -11,13 +11,18 @@ import {
 import { Cart, LineItem } from "@medusajs/medusa";
 
 type CartState = Omit<Cart, "refundable_amount" | "refunded_total"> | null;
+
 interface CartContextType {
-  cart: Cart | CartState| null;
+  cart: Cart | CartState | null;
   loading: boolean;
   addItem: (variantId: string, quantity: number, countryCode: string) => Promise<void>;
   updateItem: (lineId: string, quantity: number) => Promise<void>;
   removeItem: (lineId: string) => Promise<void>;
   refreshCart: () => Promise<void>;
+  isCartOpen: boolean;
+  toggleCart: () => void;
+  cartItems: LineItem[];
+  cartItemsQuantity: number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -33,6 +38,7 @@ export const useCart = () => {
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useState<CartState | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
   // Funkcja do odświeżania koszyka (pobierania z serwera)
   const refreshCart = async () => {
@@ -90,6 +96,17 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  // Funkcja do otwierania/zamykania koszyka
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
+  // Pobranie listy przedmiotów w koszyku
+  const cartItems = cart?.items || [];
+
+  // Obliczenie łącznej liczby przedmiotów w koszyku
+  const cartItemsQuantity = cartItems.reduce((quantity, item) => quantity + item.quantity, 0);
+
   // Pobranie koszyka przy pierwszym zamontowaniu komponentu
   useEffect(() => {
     refreshCart();
@@ -104,6 +121,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         updateItem,
         removeItem,
         refreshCart,
+        isCartOpen,
+        toggleCart,
+        cartItems,
+        cartItemsQuantity,
       }}
     >
       {children}
