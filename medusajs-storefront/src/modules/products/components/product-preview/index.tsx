@@ -1,4 +1,4 @@
-import { Text } from "@medusajs/ui"
+import "./styles.scss";
 
 import { ProductPreviewType } from "types/global"
 
@@ -36,7 +36,7 @@ export default async function ProductPreview({
   return (
     <LocalizedClientLink
       href={`/produkty/${productPreview.handle}`}
-      className="group"
+      className="group productPreview"
     >
       <div>
         <Thumbnail
@@ -45,8 +45,8 @@ export default async function ProductPreview({
           isFeatured={isFeatured}
         />
         <div className="flex txt-compact-medium mt-4 justify-between">
-          <Text className="text-ui-fg-subtle">{productPreview.title}</Text>
-          <div className="flex items-center gap-x-2">
+          <h4>{productPreview.title}</h4>
+          <div className="productPreview__price flex items-center gap-x-2">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>
         </div>

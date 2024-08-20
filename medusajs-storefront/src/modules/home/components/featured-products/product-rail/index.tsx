@@ -1,5 +1,6 @@
+import "./styles.scss";
+
 import { Region } from "@medusajs/medusa"
-import { Text } from "@medusajs/ui"
 
 import InteractiveLink from "@modules/common/components/interactive-link"
 import ProductPreview from "@modules/products/components/product-preview"
@@ -19,11 +20,11 @@ export default function ProductRail({
   }
 
   return (
-    <div className="content-container py-12 small:py-24">
+    <div className="productRail content-container py-12 small:py-24">
       <div className="flex justify-between mb-8">
-        <Text className="txt-xlarge">{collection.title}</Text>
-        <InteractiveLink href={`/collections/${collection.handle}`}>
-          View all
+        <h3 className="productRail__title">{collection.title}</h3>
+        <InteractiveLink href={`/collections/${collection.handle}`} className="productRail__link">
+          Zobacz wszystkie
         </InteractiveLink>
       </div>
       <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-24 small:gap-y-36">

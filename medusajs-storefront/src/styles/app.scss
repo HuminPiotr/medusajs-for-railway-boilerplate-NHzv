@@ -2,6 +2,7 @@
 @import "@styles/__layout.scss";
 // tempaltes
 @import '@styles/templates/store';
+@import '@styles/templates/product';
 
 
 html, body {
@@ -30,6 +31,14 @@ a {
     color: $blackColor;
     font-family: var(--lato);
     font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+h4 {
+    font-size: 1.8rem;
+    font-family: var(--lato);
 }
 
 p, span {

@@ -1,0 +1,22 @@
+@import "@styles/variables";
+
+.productRail {
+
+    &__title {
+
+    }
+
+    &__link {
+        p {
+            color: $secondaryColor;
+            font-size: 1.4rem;
+            font-family: var(--lato);
+        }
+
+        svg {
+            path {
+                stroke: $secondaryColor;
+            }
+        }
+    }
+}
