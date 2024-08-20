@@ -1,8 +1,41 @@
 @import "@styles/variables";
 
 .cartDropDown {
+    font-family: var(--lato);
+
     &__panel{
-        margin-top: 26px;
+        color: $blackColor;
+        margin-top: 28px;
+        padding: 24px;
+
+        a{
+            color: $blackColor !important;
+        }
+
+        &-productTitle {
+            font-size: 1.1rem;
+        }
+
+        &-quantity {
+            font-size: 0.8rem;
+        }
+
+        &-deleteButton {
+            span{
+                font-size: 0.8rem;
+            }
+
+            &:hover {
+                button {
+                    transition: .3s;
+                    color: black;
+                }
+            }
+        }
+
+        &-subtotal {
+            font-size: 0.8rem;
+        }
     }
 
 }

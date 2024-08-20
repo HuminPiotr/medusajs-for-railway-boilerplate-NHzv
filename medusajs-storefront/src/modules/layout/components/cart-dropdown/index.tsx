@@ -102,10 +102,10 @@ const CartDropdown = ({
         >
           <Popover.Panel
             static
-            className=" cartDropDown__panel  hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[420px] text-ui-fg-base"
+            className=" cartDropDown__panel  hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[512px] "
           >
             <div className="p-4 flex items-center justify-center">
-              <h3 className="text-large-semi">Cart</h3>
+              <h3 className="text-large-semi">Koszyk</h3>
             </div>
             {cartState && cartState.items?.length ? (
               <>
@@ -129,7 +129,7 @@ const CartDropdown = ({
                           <div className="flex flex-col flex-1">
                             <div className="flex items-start justify-between">
                               <div className="flex flex-col overflow-ellipsis whitespace-nowrap mr-4 w-[180px]">
-                                <h3 className="text-base-regular overflow-hidden text-ellipsis">
+                                <h3 className="cartDropDown__panel-productTitle text-base-regular overflow-hidden text-ellipsis">
                                   <LocalizedClientLink
                                     href={`/produkty/${item.variant.product.handle}`}
                                   >
@@ -137,7 +137,7 @@ const CartDropdown = ({
                                   </LocalizedClientLink>
                                 </h3>
                                 <LineItemOptions variant={item.variant} />
-                                <span>Quantity: {item.quantity}</span>
+                                <span className="cartDropDown__panel-quantity">Ilość: {item.quantity}</span>
                               </div>
                               <div className="flex justify-end">
                                 <LineItemPrice
@@ -148,7 +148,7 @@ const CartDropdown = ({
                               </div>
                             </div>
                           </div>
-                          <DeleteButton id={item.id} className="mt-1">
+                          <DeleteButton id={item.id} className="cartDropDown__panel-deleteButton mt-1">
                             Usuń
                           </DeleteButton>
                         </div>
@@ -157,9 +157,9 @@ const CartDropdown = ({
                 </div>
                 <div className="p-4 flex flex-col gap-y-4 text-small-regular">
                   <div className="flex items-center justify-between">
-                    <span className="text-ui-fg-base font-semibold">
-                      Subtotal{" "}
-                      <span className="font-normal">(excl. taxes)</span>
+                    <span className="cartDropDown__panel-subtotal font-semibold">
+                      Podsumowanie{" "}
+                      {/* <span className="font-normal">(excl. taxes)</span> */}
                     </span>
                     <span className="text-large-semi">
                       {formatAmount({
@@ -170,7 +170,7 @@ const CartDropdown = ({
                     </span>
                   </div>
                   <LocalizedClientLink href="/koszyk" passHref>
-                    <Button className="w-full" size="large">
+                    <Button className="w-full" size="large" variant="secondary">
                       Przejdź do koszyka
                     </Button>
                   </LocalizedClientLink>
@@ -182,12 +182,12 @@ const CartDropdown = ({
                   <div className="bg-gray-900 text-small-regular flex items-center justify-center w-6 h-6 rounded-full text-white">
                     <span>0</span>
                   </div>
-                  <span>Your shopping bag is empty.</span>
+                  <span>Twój koszyk jest pusty.</span>
                   <div>
                     <LocalizedClientLink href="/sklep">
                       <>
-                        <span className="sr-only">Go to all products page</span>
-                        <Button onClick={close}>Explore products</Button>
+                        <span className="sr-only">Przejdź do strony ze wszystkimi produktami</span>
+                        <Button onClick={close} variant="secondary">Odkrywaj produkty</Button>
                       </>
                     </LocalizedClientLink>
                   </div>
