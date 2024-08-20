@@ -23,6 +23,7 @@ import { ProductCategoryWithChildren, ProductPreviewType } from "types/global"
 import { medusaClient } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
 import { cookies } from "next/headers"
+import { Cart } from "@medusajs/medusa";
 
 const emptyResponse = {
   response: { products: [], count: 0 },
@@ -73,17 +74,31 @@ export async function updateCart(cartId: string, data: StorePostCartsCartReq) {
     .catch((error) => medusaError(error))
 }
 
-export const getCart = cache(async function (cartId: string) {
-  const headers = getMedusaHeaders(["cart"])
+// export const getCart = cache(async function (cartId: string){
+//   const headers = getMedusaHeaders(["cart"])
 
-  return medusaClient.carts
-    .retrieve(cartId, headers)
-    .then(({ cart }) => cart)
-    .catch((err) => {
-      console.log(err)
-      return null
-    })
-})
+//   return medusaClient.carts
+//     .retrieve(cartId, headers)
+//     .then(({ cart }) => cart)
+//     .catch((err) => {
+//       console.log(err)
+//       return null
+//     })
+// })
+export const getCart = cache(async function (cartId: string): Promise<Cart | null> {
+  const headers = getMedusaHeaders(["cart"]);
+
+  try {
+    const { cart } = await medusaClient.carts.retrieve(cartId, headers);
+
+    // Rzutowanie na unknown, a następnie na Cart, aby obejść problem z prywatnymi polami
+    return cart as unknown as Cart;
+
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+});
 
 export async function addItem({
   cartId,

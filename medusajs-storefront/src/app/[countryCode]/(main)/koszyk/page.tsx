@@ -22,7 +22,7 @@ const fetchCart = async () => {
   }
 
   const cart = await getCart(cartId).then(
-    (cart) => cart as CartWithCheckoutStep
+    (cart) => cart as unknown as CartWithCheckoutStep
   )
 
   if (!cart) {

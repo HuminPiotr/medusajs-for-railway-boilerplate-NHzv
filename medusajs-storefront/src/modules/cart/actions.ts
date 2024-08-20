@@ -4,6 +4,7 @@ import { LineItem } from "@medusajs/medusa"
 import { omit } from "lodash"
 import { revalidateTag } from "next/cache"
 import { cookies } from "next/headers"
+import { Cart } from "@medusajs/medusa";
 
 import {
   addItem,
@@ -53,7 +54,7 @@ export async function getOrSetCart(countryCode: string) {
   return cart
 }
 
-export async function retrieveCart() {
+export async function retrieveCart(): Promise<Cart | null> {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
   if (!cartId) {

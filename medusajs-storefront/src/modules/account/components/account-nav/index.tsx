@@ -18,7 +18,13 @@ const AccountNav = ({
   customer: Omit<Customer, "password_hash"> | null
 }) => {
   const route = usePathname()
-  const { countryCode } = useParams()
+  const params = useParams() as { countryCode?: string } | null;;
+  let countryCode = params?.countryCode;
+
+  if (!countryCode || typeof countryCode !== 'string') {
+    // Obsłuż przypadek, gdy `countryCode` nie istnieje lub nie jest stringiem
+    countryCode = "pl";
+  }
 
   const handleLogout = async () => {
     await signOut()
@@ -149,7 +155,13 @@ type AccountNavLinkProps = {
 }
 
 const AccountNavLink = ({ href, route, children }: AccountNavLinkProps) => {
-  const { countryCode }: { countryCode: string } = useParams()
+  const params = useParams() as { countryCode?: string } | null;;
+  let countryCode = params?.countryCode;
+
+  if (!countryCode || typeof countryCode !== 'string') {
+    // Obsłuż przypadek, gdy `countryCode` nie istnieje lub nie jest stringiem
+    countryCode = "pl";
+  }
 
   const active = route.split(countryCode)[1] === href
   return (
