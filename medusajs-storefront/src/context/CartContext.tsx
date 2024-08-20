@@ -10,8 +10,9 @@ import {
 } from "@modules/cart/actions";
 import { Cart, LineItem } from "@medusajs/medusa";
 
+type CartState = Omit<Cart, "refundable_amount" | "refunded_total"> | null;
 interface CartContextType {
-  cart: Cart | null;
+  cart: Cart | CartState | null;
   loading: boolean;
   addItem: (variantId: string, quantity: number, countryCode: string) => Promise<void>;
   updateItem: (lineId: string, quantity: number) => Promise<void>;
@@ -30,7 +31,7 @@ export const useCart = () => {
 };
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cart, setCart] = useState<Cart | null>(null);
+  const [cart, setCart] = useState<CartState | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   // Funkcja do odświeżania koszyka (pobierania z serwera)

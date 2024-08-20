@@ -1,6 +1,7 @@
 @import '@styles/variables.scss';
 @import "@styles/__layout.scss";
-//Pages
+// tempaltes
+@import '@styles/templates/store';
 
 
 html, body {
@@ -59,3 +60,4 @@ input {
     margin-top: 100vh;
     height: 200vh;
 }
+
