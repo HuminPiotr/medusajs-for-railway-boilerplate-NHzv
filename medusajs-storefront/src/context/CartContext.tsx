@@ -11,6 +11,7 @@ import {
 import { Cart, LineItem } from "@medusajs/medusa";
 
 type CartState = Omit<Cart, "refundable_amount" | "refunded_total"> | null;
+
 interface CartContextType {
   cart: Cart | CartState | null;
   loading: boolean;
