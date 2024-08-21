@@ -14,15 +14,15 @@ type SummaryProps = {
 
 const Summary = ({ cart }: SummaryProps) => {
   return (
-    <div className="flex flex-col gap-y-4">
-      <Heading level="h2" className="text-[2rem] leading-[2.75rem]">
-        Summary
+    <div className="flex flex-col gap-y-4 p-6 ">
+      <Heading level="h2" className="text-[2rem] leading-[2.75rem] text-center font-lato">
+        Podsumowanie
       </Heading>
       <DiscountCode cart={cart} />
       <Divider />
       <CartTotals data={cart} />
       <LocalizedClientLink href={"/checkout?step=" + cart.checkout_step}>
-        <Button className="w-full h-10">Go to checkout</Button>
+        <Button variant="secondary" className="w-full h-10">Wysyłka i płatność </Button>
       </LocalizedClientLink>
     </div>
   )

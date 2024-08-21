@@ -15,7 +15,6 @@ import { useCart } from '@context/CartContext';
  
 const CartPanel: React.FC = () => {
   const { isCartOpen, toggleCart, cartItems, cartItemsQuantity } = useCart();
-  console.log(cartItems);
   const product_list = cartItems?.map(({id, title, unit_price, quantity}) => <CartProduct key={id} name={title} price={unit_price} quantity={quantity} /> ) ;
   // const product_list = [{}];
 
@@ -50,7 +49,7 @@ const CartPanel: React.FC = () => {
             variant="transparent"
             onClick={toggleCart}
           >
-            Kontynnuj zakupy
+            Kontynuj zakupy
           </Button>
           <Button 
             variant="disabled" 

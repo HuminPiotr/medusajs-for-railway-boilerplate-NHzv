@@ -33,6 +33,10 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        'primary-color': "#EDEBE9",
+        'secondary-color': "#522A27",
+        'white-color': "#FFFF",
+        'black-color': "#2E282A",
       },
       borderRadius: {
         none: "0px",
@@ -68,6 +72,7 @@ module.exports = {
           "Ubuntu",
           "sans-serif",
         ],
+        lato: ["Lato", "sans-serif"],
       },
       keyframes: {
         ring: {

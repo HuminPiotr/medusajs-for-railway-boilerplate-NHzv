@@ -101,28 +101,28 @@ const Payment = ({
   }, [isOpen]);
 
   return (
-    <div className="bg-white">
+    <div className="">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"
           className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
+            "flex flex-row text-3xl-regular gap-x-2 items-baseline bg-primary-color",
             {
               "opacity-50 pointer-events-none select-none":
                 !isOpen && !paymentReady,
             }
           )}
         >
-          Payment
+          Płatność
           {!isOpen && paymentReady && <CheckCircleSolid />}
         </Heading>
         {!isOpen && paymentReady && (
-          <Text>
+          <Text className="bg-primary-color">
             <button
               onClick={handleEdit}
-              className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+              className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover bg-primary-color"
             >
-              Edit
+              Edytuj
             </button>
           </Text>
         )}
@@ -180,8 +180,9 @@ const Payment = ({
               onClick={handleSubmit}
               isLoading={isLoading}
               disabled={(isStripe && !cardComplete) || !cart.payment_session}
+              variant="secondary"
             >
-              Continue to review
+              Kontynuuj
             </Button>
           </div>
         ) : (
@@ -194,8 +195,8 @@ const Payment = ({
           {cart && paymentReady && cart.payment_session && (
             <div className="flex items-start gap-x-1 w-full">
               <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Payment method
+                <Text className="txt-medium-plus  mb-1">
+                  Metoda płatności
                 </Text>
                 <Text className="txt-medium text-ui-fg-subtle">
                   {paymentInfoMap[cart.payment_session.provider_id]?.title ||
@@ -210,8 +211,8 @@ const Payment = ({
                   )}
               </div>
               <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Payment details
+                <Text className="txt-medium-plus mb-1">
+                  Szczegóły płatności
                 </Text>
                 <div className="flex gap-2 txt-medium text-ui-fg-subtle items-center">
                   <Container className="flex items-center h-7 w-fit p-2 bg-ui-button-neutral-hover">

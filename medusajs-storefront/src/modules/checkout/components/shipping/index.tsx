@@ -64,19 +64,19 @@ const Shipping: React.FC<ShippingProps> = ({
   }, [isOpen])
 
   return (
-    <div className="bg-white">
-      <div className="flex flex-row items-center justify-between mb-6">
+    <div className="">
+      <div className="flex flex-row items-center justify-between mb-6 bg-primary-color">
         <Heading
           level="h2"
           className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
+            "flex flex-row text-3xl-regular gap-x-2 items-baseline bg-primary-color",
             {
               "opacity-50 pointer-events-none select-none":
                 !isOpen && cart.shipping_methods.length === 0,
             }
           )}
         >
-          Delivery
+          Dostawa
           {!isOpen && cart.shipping_methods.length > 0 && <CheckCircleSolid />}
         </Heading>
         {!isOpen &&
@@ -88,7 +88,7 @@ const Shipping: React.FC<ShippingProps> = ({
                 onClick={handleEdit}
                 className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
               >
-                Edit
+                Edytuj
               </button>
             </Text>
           )}
@@ -99,6 +99,7 @@ const Shipping: React.FC<ShippingProps> = ({
             <RadioGroup
               value={cart.shipping_methods[0]?.shipping_option_id}
               onChange={(value: string) => handleChange(value)}
+              className="text-color-black"
             >
               {availableShippingMethods ? (
                 availableShippingMethods.map((option) => {
@@ -124,7 +125,7 @@ const Shipping: React.FC<ShippingProps> = ({
                         />
                         <span className="text-base-regular">{option.name}</span>
                       </div>
-                      <span className="justify-self-end text-ui-fg-base">
+                      <span className="justify-self-end ">
                         {formatAmount({
                           amount: option.amount!,
                           region: cart?.region,
@@ -146,12 +147,13 @@ const Shipping: React.FC<ShippingProps> = ({
 
           <Button
             size="large"
-            className="mt-6"
+            className="mt-6 text-white"
             onClick={handleSubmit}
             isLoading={isLoading}
             disabled={!cart.shipping_methods[0]}
+            variant="secondary"
           >
-            Continue to payment
+            Kontynuj płatność
           </Button>
         </div>
       ) : (
@@ -159,10 +161,10 @@ const Shipping: React.FC<ShippingProps> = ({
           <div className="text-small-regular">
             {cart && cart.shipping_methods.length > 0 && (
               <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Method
+                <Text className="txt-medium-plus mb-1">
+                  Metoda
                 </Text>
-                <Text className="txt-medium text-ui-fg-subtle">
+                <Text className="txt-medium text-ui-fg-subtle text-black-color">
                   {cart.shipping_methods[0].shipping_option.name} (
                   {formatAmount({
                     amount: cart.shipping_methods[0].price,

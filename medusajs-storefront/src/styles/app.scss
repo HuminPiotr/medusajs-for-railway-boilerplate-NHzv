@@ -3,6 +3,8 @@
 // tempaltes
 @import '@styles/templates/store';
 @import '@styles/templates/product';
+@import '@styles/templates/cart';
+@import '@styles/templates/order';
 
 
 html, body {
@@ -37,6 +39,10 @@ h1{
     font-size: 1.6rem;
 }
 
+h2 {
+    font-family: var(--lato);
+}
+
 h3 {
     font-size: 1.9rem;
 }
@@ -46,7 +52,8 @@ h4 {
 }
 
 p, span {
-    font-size: 1.6rem;
+    // font-size: 1.6rem;
+    color: $blackColor;
 }
 
 ul,ol {

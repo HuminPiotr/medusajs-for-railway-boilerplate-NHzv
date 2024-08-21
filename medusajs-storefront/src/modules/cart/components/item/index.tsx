@@ -46,8 +46,8 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
   }
 
   return (
-    <Table.Row className="w-full">
-      <Table.Cell className="!pl-0 p-4 w-24">
+    <Table.Row className="itemsTable__row w-full text-black hover:bg-white" >
+      <Table.Cell className="pl-4 p-4 w-24">
         <LocalizedClientLink
           href={`/produkty/${handle}`}
           className={clx("flex", {
@@ -57,10 +57,10 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
         >
           <Thumbnail thumbnail={item.thumbnail} size="square" />
         </LocalizedClientLink>
-      </Table.Cell>
+    </Table.Cell>
 
       <Table.Cell className="text-left">
-        <Text className="txt-medium-plus text-ui-fg-base">{item.title}</Text>
+        <Text className="txt-medium-plus">{item.title}</Text>
         <LineItemOptions variant={item.variant} />
       </Table.Cell>
 
@@ -71,7 +71,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
             <CartItemSelect
               value={item.quantity}
               onChange={(value) => changeQuantity(parseInt(value.target.value))}
-              className="w-14 h-10 p-4"
+              className="w-14 h-10 p-4 bg-primary-color"
             >
               {Array.from(
                 {
@@ -83,7 +83,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
                   ),
                 },
                 (_, i) => (
-                  <option value={i + 1} key={i}>
+                  <option value={i + 1} key={i} >
                     {i + 1}
                   </option>
                 )
@@ -101,7 +101,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
         </Table.Cell>
       )}
 
-      <Table.Cell className="!pr-0">
+      <Table.Cell className="!pr-3">
         <span
           className={clx("!pr-0", {
             "flex flex-col items-end h-full justify-center": type === "preview",

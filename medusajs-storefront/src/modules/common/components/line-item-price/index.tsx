@@ -20,7 +20,6 @@ const LineItemPrice = ({
     (item.variant as CalculatedVariant).original_price * item.quantity
   // const hasReducedPrice = (item.total || 0) < originalPrice
   const hasReducedPrice = (item.total || 0) < originalPrice
-  console.log(item);
 
   return (
     <div className="flex flex-col gap-x-2 text-ui-fg-subtle items-end">
@@ -31,7 +30,7 @@ const LineItemPrice = ({
               {style === "default" && (
                 <span className="text-ui-fg-subtle">Original: </span>
               )}
-              <span className="line-through text-ui-fg-muted">
+              <span className="line-through ">
                 {formatAmount({
                   amount: originalPrice,
                   region: region,
@@ -47,12 +46,17 @@ const LineItemPrice = ({
           </>
         )}
         <span
-          className={clx("text-base-regular", {
+          className={clx("text-base text-black", {
             "text-ui-fg-interactive": hasReducedPrice,
           })}
         >
-          {formatAmount({
+          {/* {formatAmount({
             amount: item.unit_price || 0,
+            region: region,
+            includeTaxes: false,
+          })} */}
+          {formatAmount({
+            amount: originalPrice || 0,
             region: region,
             includeTaxes: false,
           })}

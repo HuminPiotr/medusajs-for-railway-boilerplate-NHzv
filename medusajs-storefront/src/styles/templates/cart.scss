@@ -1,0 +1,10 @@
+@import "@styles/variables";
+
+.itemsTable {
+    color: $blackColor;
+
+    &__row {
+        background-color: $primaryColor;
+        padding-left: 24px;
+    }
+}

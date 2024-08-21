@@ -27,7 +27,6 @@ const  CartButton: React.FC<CartButtonProps> = async ({ color="default" }) => {
   }
   
   const cart = await fetchCart();
-  console.log(cart);
 
   return (
     <button className={

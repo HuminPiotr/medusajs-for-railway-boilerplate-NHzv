@@ -30,7 +30,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
 
   return (
     <div>
-      <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle ">
+      <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle text-base ">
         <div className="flex items-center justify-between">
           <span className="flex gap-x-1 items-center">
             Suma częściowa
@@ -42,7 +42,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
         </div>
         {!!discount_total && (
           <div className="flex items-center justify-between">
-            <span>Discount</span>
+            <span>Rabat</span>
             <span className="text-ui-fg-interactive">
               - {getAmount(discount_total)}
             </span>
@@ -50,7 +50,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
         )}
         {!!gift_card_total && (
           <div className="flex items-center justify-between">
-            <span>Gift card</span>
+            <span>Karta podarunkowa</span>
             <span className="text-ui-fg-interactive">
               - {getAmount(gift_card_total)}
             </span>
@@ -60,15 +60,15 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
           <span>Wysyłka</span>
           <span>{getAmount(shipping_total)}</span>
         </div>
-        <div className="flex justify-between">
+        {/* <div className="flex justify-between">
           <span className="flex gap-x-1 items-center ">Taxes</span>
           <span>{getAmount(tax_total)}</span>
-        </div>
+        </div> */}
       </div>
       <div className="h-px w-full border-b border-gray-200 my-4" />
-      <div className="flex items-center justify-between text-ui-fg-base mb-2 txt-medium ">
+      <div className="flex items-center justify-between  mb-2 txt-medium ">
         <span>Suma</span>
-        <span className="txt-xlarge-plus">{getAmount(total)}</span>
+        <span className="txt-xlarge-plus">{getAmount(subtotal)}</span>
       </div>
       <div className="h-px w-full border-b border-gray-200 mt-4" />
     </div>

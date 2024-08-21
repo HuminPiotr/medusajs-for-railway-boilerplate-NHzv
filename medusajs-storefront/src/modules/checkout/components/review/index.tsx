@@ -21,7 +21,7 @@ const Review = ({
     cart.payment_session
 
   return (
-    <div className="bg-white">
+    <div className="">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"
@@ -32,18 +32,18 @@ const Review = ({
             }
           )}
         >
-          Review
+          Przeglad
         </Heading>
       </div>
       {isOpen && previousStepsCompleted && (
         <>
           <div className="flex items-start gap-x-1 w-full mb-6">
             <div className="w-full">
-              <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                By clicking the Place Order button, you confirm that you have
-                read, understand and accept our Terms of Use, Terms of Sale and
-                Returns Policy and acknowledge that you have read Medusa
-                Store&apos;s Privacy Policy.
+              <Text className="txt-medium-plus  mb-1">
+              Klikając przycisk Złóż zamówienie, potwierdzasz, że
+              przeczytałeś, rozumiesz i akceptujesz nasze Warunki korzystania, Warunki sprzedaży i
+              Politykę zwrotów i potwierdzasz, że przeczytałeś Politykę prywatności sklepu
+              EcoHollandstyle.
               </Text>
             </div>
           </div>

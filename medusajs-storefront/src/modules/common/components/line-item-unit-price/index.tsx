@@ -48,8 +48,14 @@ const LineItemUnitPrice = ({
           "text-ui-fg-interactive": hasReducedPrice,
         })}
       >
-        {formatAmount({
+        
+        {/* {formatAmount({
           amount: reducedPrice || item.unit_price || 0,
+          region: region,
+          includeTaxes: false,
+        })} */}
+        {formatAmount({
+          amount: item.unit_price || 0,
           region: region,
           includeTaxes: false,
         })}

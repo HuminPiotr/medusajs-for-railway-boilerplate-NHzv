@@ -140,6 +140,7 @@ const ShippingAddress = ({
           value={formData["shipping_address.country_code"]}
           onChange={handleChange}
           required
+          className="bg-white font-lato border border-black hover:bg-white"
         />
         <Input
           label="State / Province"
@@ -151,7 +152,7 @@ const ShippingAddress = ({
       </div>
       <div className="my-8">
         <Checkbox
-          label="Same as billing address"
+          label="Taki sam jak adres rozliczeniowy"
           name="same_as_billing"
           checked={checked}
           onChange={onChange}

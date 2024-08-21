@@ -217,8 +217,9 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
         isLoading={submitting}
         onClick={handlePayment}
         size="large"
+        variant="secondary"
       >
-        Place order
+        Złóż zamówienie
       </Button>
       <ErrorMessage error={errorMessage} />
     </>
