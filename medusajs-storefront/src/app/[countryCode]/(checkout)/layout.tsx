@@ -14,7 +14,7 @@ export default function CheckoutLayout({
       <div className="h-16 bg-primaryColor border-b ">
         <nav className="flex h-full items-center content-container justify-between">
           <LocalizedClientLink
-            href="/cart"
+            href="/koszyk"
             className="text-small-semi text-ui-fg-base flex items-center gap-x-2 uppercase flex-1 basis-0"
           >
             <ChevronDown className="rotate-90 text-black" size={16} />

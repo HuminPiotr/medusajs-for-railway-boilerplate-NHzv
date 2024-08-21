@@ -153,7 +153,7 @@ const Shipping: React.FC<ShippingProps> = ({
             disabled={!cart.shipping_methods[0]}
             variant="secondary"
           >
-            Kontynuj płatność
+            Kontynuuj płatność
           </Button>
         </div>
       ) : (

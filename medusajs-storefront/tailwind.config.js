@@ -73,6 +73,7 @@ module.exports = {
           "sans-serif",
         ],
         lato: ["Lato", "sans-serif"],
+        cormorant: ["Cormorant", "sans-serif"],
       },
       keyframes: {
         ring: {

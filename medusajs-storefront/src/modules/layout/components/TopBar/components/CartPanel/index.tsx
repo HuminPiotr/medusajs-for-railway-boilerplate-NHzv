@@ -49,7 +49,7 @@ const CartPanel: React.FC = () => {
             variant="transparent"
             onClick={toggleCart}
           >
-            Kontynuj zakupy
+            Kontynuuj zakupy
           </Button>
           <Button 
             variant="disabled" 
