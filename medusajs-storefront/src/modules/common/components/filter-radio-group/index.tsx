@@ -20,8 +20,8 @@ const FilterRadioGroup = ({
 }: FilterRadioGroupProps) => {
   return (
     <div className="flex gap-x-3 flex-col gap-y-3">
-      <Text className="txt-compact-small-plus text-ui-fg-muted">{title}</Text>
-      <RadioGroup>
+      <Text className="txt-ui-fg-base mb-2 font-lato text-[18px]">{title}</Text>
+      <RadioGroup className="list-none">
         {items?.map((i) => (
           <div
             key={i.value}
@@ -48,7 +48,7 @@ const FilterRadioGroup = ({
               className={clx(
                 "!txt-compact-small !transform-none text-ui-fg-subtle hover:cursor-pointer",
                 {
-                  "text-ui-fg-base": i.value === value,
+                  "text-secondary-color": i.value === value,
                 }
               )}
             >
