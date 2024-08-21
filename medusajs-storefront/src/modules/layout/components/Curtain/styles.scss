@@ -1,0 +1,30 @@
+@import "@styles/variables";
+
+.curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $blackColor; // Kolor kurtyny
+    z-index: 9999; // Ustawienie najwyższego priorytetu, aby zakryć wszystko
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideUp 2s ease-in forwards;
+  
+    &.hidden {
+      display: none; // Ukrycie kurtyny po zakończeniu animacji
+    }
+  }
+  
+  // Animacja kurtyny w górę
+  @keyframes slideUp {
+    0% {
+      transform: translateY(0); // Start od pełnego pokrycia
+    }
+    100% {
+      transform: translateY(-100%); // Zakończenie poza ekranem
+    }
+  }
+  

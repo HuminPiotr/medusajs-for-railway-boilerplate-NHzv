@@ -19,7 +19,7 @@ export interface TopBarProps  {
   initialVariant?: "default" | "white";
 }
 
-const TopBar: React.FC<TopBarProps> = ({initialVariant = "default"}) => {
+const TopBar: React.FC<TopBarProps> = ({initialVariant = "white"}) => {
   const [menuIsOpen, setMenu] = useState(false);
   const [isAboveHero, setIsAboveHero] = useState(false);
   const pathname = usePathname();

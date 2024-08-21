@@ -50,6 +50,10 @@
                     color: $secondaryColor;
                 }
             }
+
+            @media (max-width: 600px) {
+                display: none;;
+            }
         }
     }
 
@@ -78,6 +82,10 @@
             }
             svg {
                 margin-top: 29px;
+            }
+
+            @media (max-width: 600px) {
+                flex-direction: column;
             }
         }
 
@@ -110,6 +118,9 @@
             margin-top: 29px;
         }
 
+        @media (max-width: 600px) {
+            padding: 12px 0;
+        }
 
     }
 
